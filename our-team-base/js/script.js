@@ -53,3 +53,48 @@ for (let i = 0; i < team.length; i++) {
   teamContainer.innerHTML += card;
 }
 
+const inputName = document.getElementById('name');
+const inputRole = document.getElementById('role');
+const inputImg = document.getElementById('image');
+const button = document.getElementById('addMemberButton');
+
+button.addEventListener('click', function (event) {
+  event.preventDefault(); 
+  const nameEmployee = inputName.value;
+  const roleEmployee = inputRole.value;
+  const imgEmployee = inputImg.value;
+
+  if (nameEmployee.length > 0 && roleEmployee.length > 0) {
+    
+    const obj = {
+      name: nameEmployee,
+      role: roleEmployee,
+      img: imgEmployee
+    };
+    team.push(obj);
+
+    const teamContainer = document.querySelector('.team-container');
+    
+    for (let i = 0; i < team.length; i++) {
+      const object = team[i];
+      
+      const card = `
+      <div class="team-card">
+                <div class="card-image">
+                  <img
+                    src="img/${object.image}"
+                    alt="Wayne Barnett"
+                  />
+                </div>
+                <div class="card-text">
+                  <h3>${object.name}</h3>
+                  <p>${object.role}</p>
+                </div>
+              </div>
+      `;
+      teamContainer.innerHTML += card;
+    }
+  } else {
+    console.log('non hai inserito dei dati');
+  }
+});
