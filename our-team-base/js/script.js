@@ -69,12 +69,12 @@ button.addEventListener('click', function (event) {
     const obj = {
       name: nameEmployee,
       role: roleEmployee,
-      img: imgEmployee
+      image: imgEmployee
     };
     team.push(obj);
 
     const teamContainer = document.querySelector('.team-container');
-    
+    teamContainer.innerHTML = '';
     for (let i = 0; i < team.length; i++) {
       const object = team[i];
       
@@ -95,6 +95,6 @@ button.addEventListener('click', function (event) {
       teamContainer.innerHTML += card;
     }
   } else {
-    console.log('non hai inserito dei dati');
+    alert('non hai inserito dei dati');
   }
 });
